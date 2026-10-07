@@ -1,0 +1,71 @@
+version: '3.8'
+
+services:
+  snow-crab:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: snow-crab-v1
+    hostname: snow-crab
+    restart: unless-stopped
+    ports:
+      - "5000:5000"   # Web Dashboard
+      - "8080:8080"   # Phishing Server
+      - "4444:4444"   # C2 Server
+      - "5555:5555"   # Agent Server
+    volumes:
+      - ./data:/app/.snow_crab_v1
+      - ./reports:/app/snow_crab_reports
+      - ./logs:/app/logs
+    environment:
+      - PYTHONUNBUFFERED=1
+      - SNOW_CRAB_HOME=/app
+      - TZ=UTC
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+      - SYS_ADMIN
+    networks:
+      - snow-crab-net
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import socket; s=socket.socket(); s.connect(('localhost',5000)); s.close()"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  # Optional: Redis for caching
+  redis:
+    image: redis:7-alpine
+    container_name: snow-crab-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - snow-crab-net
+
+  # Optional: PostgreSQL for advanced features
+  postgres:
+    image: postgres:16-alpine
+    container_name: snow-crab-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: snowcrab
+      POSTGRES_PASSWORD: snowcrab_secure_password
+      POSTGRES_DB: snowcrab
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - snow-crab-net
+
+networks:
+  snow-crab-net:
+    driver: bridge
+
+volumes:
+  redis-data:
+  postgres-data:

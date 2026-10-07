@@ -1,0 +1,63 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+
+# Application data
+.snow_crab_v1/
+snow_crab_reports/
+logs/
+temp/
+*.db
+*.sqlite
+*.sqlite3
+
+# Credentials and keys
+*.pem
+*.key
+id_rsa*
+*.pub
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.*
+*.env
+
+# Sensitive data
+captured_credentials/
+keylog.txt
+*.keylog
+
+# Temporary files
+*.tmp
+*.temp
+~*

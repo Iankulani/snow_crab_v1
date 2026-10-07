@@ -1,0 +1,61 @@
+# SNOW-CRAB-V1 Alpine Dockerfile (Minimal)
+FROM alpine:3.19
+
+LABEL maintainer="Ian Carter Kulani"
+LABEL description="SNOW-CRAB-V1 - Minimal Alpine Build"
+
+# Install minimal dependencies
+RUN apk add --no-cache \
+    python3 \
+    py3-pip \
+    bash \
+    curl \
+    nmap \
+    netcat-openbsd \
+    bind-tools \
+    traceroute \
+    whois \
+    openssh-client \
+    iputils \
+    net-tools \
+    sqlite \
+    && rm -rf /var/cache/apk/*
+
+WORKDIR /app
+
+# Create virtual environment
+RUN python3 -m venv /opt/venv
+ENV PATH="/opt/venv/bin:$PATH"
+
+# Install core Python packages only
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir \
+    colorama \
+    requests \
+    psutil \
+    paramiko \
+    scapy \
+    dnspython \
+    whois \
+    flask \
+    flask-socketio \
+    flask-cors \
+    reportlab \
+    matplotlib \
+    numpy \
+    qrcode \
+    pillow \
+    beautifulsoup4 \
+    tabulate \
+    termcolor
+
+COPY . .
+
+RUN mkdir -p /app/.snow_crab_v1 && \
+    chmod +x *.py 2>/dev/null || true
+
+EXPOSE 5000 8080
+
+ENV PYTHONUNBUFFERED=1
+
+CMD ["python3", "snow_crab_v1.py"]
