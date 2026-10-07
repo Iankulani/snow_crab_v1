@@ -1,5 +1,10 @@
 # snow_crab_v1
 
+<div align="center">
+
+<img width="536" height="524" alt="whitecrab" src="https://github.com/user-attachments/assets/d915930e-b5eb-436c-9393-bc09307b3d4b" />
+
+
 
 [![GitHub Stars](https://img.shields.io/github/stars/Iankulani/snow_crab_v1?style=for-the-badge&logo=github)](https://github.com/Iankulani/snow_crab_v1/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/Iankulani/snow_crab_v1?style=for-the-badge&logo=github)](https://github.com/Iankulani/snow_crab_v1/network/members)
@@ -14,6 +19,9 @@
 [![Slack](https://img.shields.io/badge/Slack-supported-4A154B?style=for-the-badge&logo=slack&logoColor=white)](https://github.com/Iankulani/snow_crab_v1)
 [![Google Chat](https://img.shields.io/badge/Google%20Chat-supported-34A853?style=for-the-badge&logo=googlechat&logoColor=white)](https://github.com/Iankulani/snow_crab_v1)
 [![Web Application](https://img.shields.io/badge/Web%20Application-supported-blue?style=for-the-badge&logo=googlechrome&logoColor=white)](https://github.com/Iankulani/snow_crab_v1)
+
+</div>
+
 
 
 Snow Crab is an offensive cybersecurity tool developed by Accurate Cyber Defense to support security professionals, penetration testers, cybersecurity researchers, red teams, and organizations conducting authorized security assessments. The platform is designed to provide a centralized way to execute cybersecurity commands and coordinate security-testing activities across multiple communication channels.
