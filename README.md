@@ -51,6 +51,8 @@ python3 snow_crab_v1.py
 ```
 # Documentaion
 
+[![Documentation](https://img.shields.io/badge/📖-Documentation-0066ff?style=for-the-badge&logo=readthedocs)](https://iankulani.github.io/Snow-Crab-Doc/)
+
 # References
 
 
